@@ -26,7 +26,6 @@ header h1 {
     margin: 0;
     font-weight: 800;
     letter-spacing: -1.5px;
-    text-transform: uppercase;
 }
 
 header p {
@@ -38,14 +37,13 @@ header p {
 nav {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* 메뉴가 많아질 경우 줄바꿈 허용 */
+    flex-wrap: wrap;
     background: white;
     position: sticky;
     top: 0;
     z-index: 1000;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
-    padding: 0 1rem;
 }
 
 nav a {
@@ -124,7 +122,7 @@ nav a:hover, nav a.active {
 
 /* Detail Pages Style */
 .hero {
-    height: 60vh;
+    height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -156,9 +154,13 @@ nav a:hover, nav a.active {
 
 .detail-layout {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2.5fr 1fr;
     gap: 4rem;
     margin-top: 3rem;
+}
+
+.main-content section {
+    margin-bottom: 4rem;
 }
 
 .main-content h2 {
@@ -172,6 +174,81 @@ nav a:hover, nav a.active {
 .main-content p {
     font-size: 1.05rem;
     margin-bottom: 1.5rem;
+    color: var(--text-sub);
+}
+
+/* Sub-type Grid */
+.sub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.sub-item {
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 1.5rem;
+    transition: 0.3s;
+}
+
+.sub-item:hover {
+    border-color: var(--theme-main);
+}
+
+.sub-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    filter: grayscale(30%);
+}
+
+.sub-item h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+    color: var(--text-main);
+}
+
+.sub-item p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--text-sub);
+}
+
+/* Products Section */
+.products-section {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid #eee;
+}
+
+.product-card {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 2rem;
+    background: var(--bg-light);
+    padding: 1.5rem;
+}
+
+.product-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    background: white;
+    padding: 10px;
+}
+
+.product-info h5 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    color: var(--text-main);
+}
+
+.product-info p {
+    font-size: 0.9rem;
+    margin: 0;
     color: var(--text-sub);
 }
 
@@ -215,32 +292,17 @@ nav a:hover, nav a.active {
     margin-right: 10px;
 }
 
-.color-guide {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 15px;
-}
-
-.color-swatch {
-    width: 35px;
-    height: 35px;
-    border-radius: 4px;
-    border: 1px solid #eee;
-}
-
 /* Theme Colors */
-.theme-whiskey { --theme-main: #8B4513; --theme-sub: #DAA520; }
-.theme-rum { --theme-main: #5D2A11; --theme-sub: #D2691E; }
-.theme-gin { --theme-main: #006666; --theme-sub: #7FB3B3; }
-.theme-vodka { --theme-main: #4A6984; --theme-sub: #A5B8C8; }
-.theme-makgeolli { --theme-main: #8D7B68; --theme-sub: #D5BDAF; }
-/* New Themes */
-.theme-soju { --theme-main: #2E8B57; --theme-sub: #90EE90; }
-.theme-sake { --theme-main: #1A237E; --theme-sub: #C0C0C0; }
-.theme-beer { --theme-main: #D4AF37; --theme-sub: #5D4037; }
-.theme-wine { --theme-main: #722F37; --theme-sub: #C71585; }
-.theme-tequila { --theme-main: #2F4F4F; --theme-sub: #FF8C00; }
+.theme-whiskey { --theme-main: #8B4513; }
+.theme-rum { --theme-main: #5D2A11; }
+.theme-gin { --theme-main: #006666; }
+.theme-vodka { --theme-main: #4A6984; }
+.theme-makgeolli { --theme-main: #8D7B68; }
+.theme-soju { --theme-main: #2E8B57; }
+.theme-sake { --theme-main: #1A237E; }
+.theme-beer { --theme-main: #D4AF37; }
+.theme-wine { --theme-main: #722F37; }
+.theme-tequila { --theme-main: #2F4F4F; }
 
 footer {
     text-align: center;
@@ -253,6 +315,5 @@ footer {
 
 @media (max-width: 900px) {
     .detail-layout { grid-template-columns: 1fr; gap: 3rem; }
-    .hero h1 { font-size: 2.5rem; }
-    nav a { padding: 0.8rem; font-size: 0.7rem; }
+    .product-card { flex-direction: column; text-align: center; }
 }
